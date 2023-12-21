@@ -111,18 +111,17 @@ jobs:
         - name: Install kubectl cli
           uses: azure/setup-kubectl@v3
           with:
-            version: 1.26.0
+            version: v1.26.0
         
         - name: Adding kubeconfig
           uses: azure/k8s-set-context@v3
           with:
             method: kubeconfig
             kubeconfig: ${{ secrets.KUBECONFIG }}
-              
-        
-        # - name: Fetch K8s Cluster Details
-        #   run: |
-        #     kubectl version --short -o yaml
+
+        - name: Fetch K8s Cluster Details
+          run: |
+            kubectl version --short -o yaml
         
         # - name: Get Nginx Controller IP as Github Env Variable
         #   run: |
