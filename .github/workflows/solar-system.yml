@@ -74,6 +74,7 @@ jobs:
   docker:  
     name: docker
     runs-on: ubuntu_latest
+    needs: [unit-testing,code-coverage]
 
     steps:
         - name: Checkout Repository
